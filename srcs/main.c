@@ -6,14 +6,37 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:17:24 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 18:38:53 by rania            ###   ########.fr       */
+/*   Updated: 2022/09/23 21:38:58 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+void	ft_stack_display(t_stack *lst)
 {
-	ft_create_stack(ac, av);
+	while (lst)
+	{
+		printf("val = %i; pos = %i\n", lst->val, lst->pos);
+		lst = lst->next;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
+	if (!ft_check_arg(av) || ac <= 1)
+		return (0);
+	stack_a = ft_create_stack(ac, av);
+	stack_b = NULL;
+	ft_reverse_rotate(&stack_a, "rra");
+	ft_printf("STACK A:\n");
+	ft_stack_display(stack_a);
+	// ft_printf("STACK B:\n");
+	// ft_stack_display(stack_b);
+
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return 0;
 }

@@ -6,11 +6,21 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:35:55 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 18:41:47 by rania            ###   ########.fr       */
+/*   Updated: 2022/09/23 21:07:00 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		ft_tablen(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
+}
 
 t_stack	*ft_stack_new(int val, int pos)
 {
@@ -25,33 +35,7 @@ t_stack	*ft_stack_new(int val, int pos)
 	return (list1);
 }
 
-t_stack	*ft_stack_last(t_stack *lst)
-{
-	while (lst && (lst->next != NULL))
-		lst = lst->next;
-	return (lst);
-}
-
-void	ft_stack_display(t_stack *lst)
-{
-	while (lst)
-	{
-		printf("val = %i; pos = %i\n", lst->val, lst->pos);
-		lst = lst->next;
-	}
-}
-
-int		ft_tablen(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
-}
-
-int ft_create_stack(int ac, char **av)
+t_stack *ft_create_stack(int ac, char **av)
 {
 	char	**tab;
 	t_stack	*stack;
@@ -61,8 +45,7 @@ int ft_create_stack(int ac, char **av)
 	int		pos;
 
 	i = ac - 1;
-	if (!ft_check_arg(av))
-		return (0);
+	stack = NULL;
 	while (i > 0)
 	{
 		tab = ft_split(av[i], ' ');
@@ -77,6 +60,5 @@ int ft_create_stack(int ac, char **av)
 		}
 		i--;
 	}
-	ft_stack_display(stack);
-	return 0;
+	return (stack);
 }

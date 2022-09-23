@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+         #
+#    By: rania <rania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 09:46:37 by radaoudi          #+#    #+#              #
-#    Updated: 2022/09/01 15:04:13 by radaoudi         ###   ########.fr        #
+#    Updated: 2022/09/23 21:43:38 by rania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} bonus
 			ar -rcs ${NAME} ${OBJS}
 
 %.o: %.c

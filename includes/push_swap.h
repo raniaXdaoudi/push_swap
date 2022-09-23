@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:19:28 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 18:42:39 by rania            ###   ########.fr       */
+/*   Updated: 2022/09/23 21:38:22 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-int ft_create_stack(int ac, char **av);
-int	ft_check_arg(char **av);
+t_stack	*ft_create_stack(int ac, char **av);
+t_stack	*ft_stack_new(int val, int pos);
+t_stack	*ft_stack_last(t_stack *lst);
+int		ft_check_arg(char **av);
+void	free_stack(t_stack **stack);
+void	ft_stack_add_back(t_stack **alst, t_stack *new);
+void	ft_stack_add_front(t_stack **alst, t_stack *new);
+void	ft_swap(t_stack *stack, char const *move);
+void	ft_push(t_stack **stack_src, t_stack **stack_dest, char *move);
+void	ft_rotate(t_stack **stack, char *move);
+void	ft_reverse_rotate(t_stack **stack, char *move);
 
 #endif
