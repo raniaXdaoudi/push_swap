@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:58:45 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 21:36:14 by rania            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:16:47 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,17 @@ void	ft_stack_add_front(t_stack **alst, t_stack *new)
 	if (alst && *alst)
 		new->next = *alst;
 	*alst = new;
+}
+
+int	ft_stack_size(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }

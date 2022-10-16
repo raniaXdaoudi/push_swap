@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:17:24 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 21:38:58 by rania            ###   ########.fr       */
+/*   Updated: 2022/10/03 16:00:27 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	main(int ac, char **av)
 		return (0);
 	stack_a = ft_create_stack(ac, av);
 	stack_b = NULL;
-	ft_reverse_rotate(&stack_a, "rra");
-	ft_printf("STACK A:\n");
-	ft_stack_display(stack_a);
+	ft_sort_five(&stack_a, &stack_b);
+	// ft_printf("STACK A:\n");
+	// ft_stack_display(stack_a);
 	// ft_printf("STACK B:\n");
 	// ft_stack_display(stack_b);
 

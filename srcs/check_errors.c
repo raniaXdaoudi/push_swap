@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:41:07 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 18:41:41 by rania            ###   ########.fr       */
+/*   Updated: 2022/10/03 13:22:07 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_check_arg(char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]) && av[i][j] != ' ')
+			if (!ft_isdigit(av[i][j]) && av[i][j] != ' ' && (av[i][j] == '-' && !ft_isdigit(av[i][j + 1])))
 				return (0);
 			j++;
 		}

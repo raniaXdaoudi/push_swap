@@ -6,7 +6,7 @@
 #    By: rania <rania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:29:13 by rania             #+#    #+#              #
-#    Updated: 2022/09/23 21:05:57 by rania            ###   ########.fr        #
+#    Updated: 2022/10/03 13:06:19 by rania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ SRCS_NAME	= main.c \
 				create_stack.c \
 				check_errors.c \
 				move.c \
-				stack_utils.c
+				stack_utils.c \
+				short_sort.c
 OBJS_DIR	= objs
 OBJS_NAME	= ${SRCS_NAME:.c=.o}
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_NAME))
