@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 21:04:28 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 21:37:51 by rania            ###   ########.fr       */
+/*   Updated: 2022/10/16 19:53:07 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_push(t_stack **stack_src, t_stack **stack_dest, char *move)
 	if (stack_src)
 	{
 		tmp = ft_stack_new((*stack_src)->val, (*stack_src)->pos);
-		ft_stack_add_back(stack_dest, tmp);
+		ft_stack_add_front(stack_dest, tmp);
 		(*stack_src) = (*stack_src)->next;
 		ft_printf("%s\n", move);
 	}
