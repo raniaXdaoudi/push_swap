@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 21:04:28 by rania             #+#    #+#             */
-/*   Updated: 2022/10/20 17:17:10 by rania            ###   ########.fr       */
+/*   Updated: 2022/10/20 17:24:00 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_rotate(t_stack **stack, char *move)
 	{
 		tmp = *stack;
 		*stack = (*stack)->next;
-		tail = ft_stack_add_back(stack);
+		tail = ft_stack_last(*stack);
 		tmp->next = NULL;
 		tail->next = tmp;
 		ft_printf("%s\n", move);
