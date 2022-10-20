@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 09:42:54 by radaoudi          #+#    #+#             */
-/*   Updated: 2022/09/01 15:18:44 by radaoudi         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:04:08 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ int		ft_print_hexa(va_list tab, char c);
 int		ft_print_pointeur(va_list tab);
 int		ft_print_string(va_list tab);
 int		ft_print_unsi(va_list tab);
+char	**ft_free_tab(char **tab);
 
 #endif

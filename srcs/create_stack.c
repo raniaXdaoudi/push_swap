@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:35:55 by rania             #+#    #+#             */
-/*   Updated: 2022/09/23 21:07:00 by rania            ###   ########.fr       */
+/*   Updated: 2022/10/20 17:05:17 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_stack *ft_create_stack(int ac, char **av)
 			j--;
 		}
 		i--;
+		ft_free_tab(tab);
 	}
 	return (stack);
 }

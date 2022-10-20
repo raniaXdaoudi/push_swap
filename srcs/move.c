@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 21:04:28 by rania             #+#    #+#             */
-/*   Updated: 2022/10/16 19:53:07 by rania            ###   ########.fr       */
+/*   Updated: 2022/10/20 17:17:10 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	ft_push(t_stack **stack_src, t_stack **stack_dest, char *move)
 
 	if (stack_src)
 	{
-		tmp = ft_stack_new((*stack_src)->val, (*stack_src)->pos);
-		ft_stack_add_front(stack_dest, tmp);
-		(*stack_src) = (*stack_src)->next;
+		tmp = (*stack_src)->next;
+		(*stack_src)->next = *stack_dest;
+		*stack_dest = *stack_src;
+		*stack_src = tmp;
 		ft_printf("%s\n", move);
 	}
 }
@@ -44,13 +45,16 @@ void	ft_push(t_stack **stack_src, t_stack **stack_dest, char *move)
 void	ft_rotate(t_stack **stack, char *move)
 {
 	t_stack	*tmp;
+	t_stack    *tail;
 
 	tmp = NULL;
 	if (stack && *stack)
 	{
-		tmp = ft_stack_new((*stack)->val, (*stack)->pos);
-		ft_stack_add_back(stack, tmp);
-		(*stack) = (*stack)->next;
+		tmp = *stack;
+		*stack = (*stack)->next;
+		tail = ft_stack_add_back(stack);
+		tmp->next = NULL;
+		tail->next = tmp;
 		ft_printf("%s\n", move);
 	}
 }

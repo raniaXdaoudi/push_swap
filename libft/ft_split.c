@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 13:30:22 by radaoudi          #+#    #+#             */
-/*   Updated: 2021/12/06 15:48:45 by radaoudi         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:03:46 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	count_words(char const *str, char c)
 	return (count);
 }
 
-static char	**ft_free_tab(char **tab)
+char	**ft_free_tab(char **tab)
 {
 	int	i;
 
