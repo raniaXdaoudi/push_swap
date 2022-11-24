@@ -6,7 +6,7 @@
 #    By: rania <rania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:29:13 by rania             #+#    #+#              #
-#    Updated: 2022/10/03 13:06:19 by rania            ###   ########.fr        #
+#    Updated: 2022/11/24 13:55:29 by rania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRCS_NAME	= main.c \
 				check_errors.c \
 				move.c \
 				stack_utils.c \
-				short_sort.c
+				short_sort.c \
+				radix_sort.c
 OBJS_DIR	= objs
 OBJS_NAME	= ${SRCS_NAME:.c=.o}
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_NAME))
@@ -29,7 +30,8 @@ NAME	= push_swap
 
 CC		= gcc
 RM		= rm -f
-CFLAGS	= $(INC) -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS	= $(INC) -Wall -Wextra -Werror
+# -fsanitize=address -g3
 all:		$(LFT) $(NAME)
 
 $(NAME):	$(OBJS)

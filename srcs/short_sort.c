@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:04:55 by rania             #+#    #+#             */
-/*   Updated: 2022/10/16 20:10:12 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/24 13:55:29 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int		ft_get_min(t_stack *stack_a)
 	return (tmp);
 }
 
-void	ft_sort_two(t_stack **stack)
+void	ft_sort_two(t_stack **stack, char *move)
 {
 	int	a;
 	int	b;
@@ -54,14 +54,37 @@ void	ft_sort_two(t_stack **stack)
 	a = (*stack)->val;
 	b = (*stack)->next->val;
 	if (a > b)
-		ft_rotate(stack, "rb");
+		ft_rotate(stack, move);
+}
+
+int		check_reverse_sorted(t_stack **stack_a)
+{
+	int	ret;
+	int	prev_val;
+	t_stack *tmp;
+
+	ret = 1;
+	tmp = *stack_a;
+	prev_val = tmp->val + 1;
+	while (tmp)
+	{
+		if (prev_val < tmp->val)
+			ret = 0;
+		prev_val = tmp->val;
+		tmp = tmp->next;
+	}
+	return (ret);
 }
 
 void	ft_sort_five(t_stack **stack_a, t_stack **stack_b)
 {
+	if (ft_stack_last(*stack_a)->val == ft_get_min(*stack_a))
+		ft_reverse_rotate(stack_a, "rra");
 	while ((*stack_a)->val != ft_get_min(*stack_a))
 		ft_rotate(stack_a, "ra");
 	ft_push(stack_a, stack_b, "pb");
+	if (ft_stack_last(*stack_a)->val == ft_get_min(*stack_a))
+		ft_reverse_rotate(stack_a, "rra");
 	while ((*stack_a)->val != ft_get_min(*stack_a))
 		ft_rotate(stack_a, "ra");
 	ft_push(stack_a, stack_b, "pb");

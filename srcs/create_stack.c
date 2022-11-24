@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:35:55 by rania             #+#    #+#             */
-/*   Updated: 2022/10/20 17:05:17 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/24 13:45:08 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ t_stack	*ft_stack_new(int val, int pos)
 		return (NULL);
 	list1->val = val;
 	list1->pos = pos;
+	list1->final_pos = -1;
 	list1->next = 0;
 	return (list1);
 }
 
-t_stack *ft_create_stack(int ac, char **av)
+t_stack	*ft_create_stack(int ac, char **av)
 {
 	char	**tab;
 	t_stack	*stack;
@@ -53,7 +54,14 @@ t_stack *ft_create_stack(int ac, char **av)
 		pos = i + j;
 		while (j >= 0)
 		{
-			tmp = ft_stack_new(ft_atoi(tab[j]), pos--);
+			if (ft_atoi(tab[j]) > MAX_INT || ft_atoi(tab[j]) < MIN_INT)
+			{
+				ft_putstr_fd("Error\n", 2);
+				free_stack(&stack);
+				return (NULL);
+			}
+			else
+				tmp = ft_stack_new((int)ft_atoi(tab[j]), pos--);
 			tmp->next = stack;
 			stack = tmp;
 			j--;
