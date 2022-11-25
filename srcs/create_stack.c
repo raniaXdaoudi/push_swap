@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:35:55 by rania             #+#    #+#             */
-/*   Updated: 2022/11/24 13:45:08 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/25 19:49:55 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_tablen(char **tab)
+int	ft_tablen(char **tab)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int		ft_tablen(char **tab)
 	return (i);
 }
 
-t_stack	*ft_stack_new(int val, int pos)
+t_stack	*ft_stack_new(int val)
 {
 	t_stack	*list1;
 
@@ -30,10 +30,17 @@ t_stack	*ft_stack_new(int val, int pos)
 	if (!list1)
 		return (NULL);
 	list1->val = val;
-	list1->pos = pos;
 	list1->final_pos = -1;
 	list1->next = 0;
 	return (list1);
+}
+
+static t_stack	*ft_return_error(t_stack *stack, char **tab)
+{
+	ft_putstr_fd("Error\n", 2);
+	free_stack(&stack);
+	ft_free_tab(tab);
+	return (NULL);
 }
 
 t_stack	*ft_create_stack(int ac, char **av)
@@ -43,30 +50,22 @@ t_stack	*ft_create_stack(int ac, char **av)
 	t_stack	*tmp;
 	int		i;
 	int		j;
-	int		pos;
 
-	i = ac - 1;
+	i = ac;
 	stack = NULL;
-	while (i > 0)
+	while (--i > 0)
 	{
 		tab = ft_split(av[i], ' ');
-		j = ft_tablen(tab) - 1;
-		pos = i + j;
-		while (j >= 0)
+		j = ft_tablen(tab);
+		while (--j >= 0)
 		{
 			if (ft_atoi(tab[j]) > MAX_INT || ft_atoi(tab[j]) < MIN_INT)
-			{
-				ft_putstr_fd("Error\n", 2);
-				free_stack(&stack);
-				return (NULL);
-			}
+				return (ft_return_error(stack, tab));
 			else
-				tmp = ft_stack_new((int)ft_atoi(tab[j]), pos--);
+				tmp = ft_stack_new((int)ft_atoi(tab[j]));
 			tmp->next = stack;
 			stack = tmp;
-			j--;
 		}
-		i--;
 		ft_free_tab(tab);
 	}
 	return (stack);

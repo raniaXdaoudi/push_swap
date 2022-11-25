@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   short_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:04:55 by rania             #+#    #+#             */
-/*   Updated: 2022/11/24 13:55:29 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/25 19:30:11 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_sort_three(t_stack **stack)
 	ft_sort_three(stack);
 }
 
-static int		ft_get_min(t_stack *stack_a)
+static int	ft_get_min(t_stack *stack_a)
 {
 	int	tmp;
 
@@ -57,11 +57,11 @@ void	ft_sort_two(t_stack **stack, char *move)
 		ft_rotate(stack, move);
 }
 
-int		check_reverse_sorted(t_stack **stack_a)
+int	check_reverse_sorted(t_stack **stack_a)
 {
-	int	ret;
-	int	prev_val;
-	t_stack *tmp;
+	int		ret;
+	int		prev_val;
+	t_stack	*tmp;
 
 	ret = 1;
 	tmp = *stack_a;

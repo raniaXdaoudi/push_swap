@@ -3,31 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:19:28 by rania             #+#    #+#             */
-/*   Updated: 2022/11/24 13:33:56 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/25 19:31:08 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft.h"
-
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
+
+# include "libft.h"
 
 typedef struct s_stack
 {
 	int				val;
-	int				pos;
 	int				final_pos;
 	struct s_stack	*next;
 }	t_stack;
 
 t_stack	*ft_create_stack(int ac, char **av);
-t_stack	*ft_stack_new(int val, int pos);
+t_stack	*ft_stack_new(int val);
 t_stack	*ft_stack_last(t_stack *lst);
 int		ft_check_maxint(t_stack **stack);
 int		ft_check_double(t_stack **stack);

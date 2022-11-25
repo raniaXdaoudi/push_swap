@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rania <rania@student.42.fr>                +#+  +:+       +#+         #
+#    By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:29:13 by rania             #+#    #+#              #
-#    Updated: 2022/11/24 13:55:29 by rania            ###   ########.fr        #
+#    Updated: 2022/11/25 20:05:05 by radaoudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ NAME	= push_swap
 CC		= gcc
 RM		= rm -f
 CFLAGS	= $(INC) -Wall -Wextra -Werror
-# -fsanitize=address -g3
 all:		$(LFT) $(NAME)
 
 $(NAME):	$(OBJS)

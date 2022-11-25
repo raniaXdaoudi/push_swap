@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 18:41:07 by rania             #+#    #+#             */
-/*   Updated: 2022/11/24 13:48:09 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/25 18:47:00 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,27 @@
 int	ft_check_arg(char **av)
 {
 	int	i;
-	int j;
+	int	j;
 	int	new_nb;
 
-	i = 1;
-	new_nb = 1;
-	while (av[i])
+	i = 0;
+	while (av[++i])
 	{
-		j = 0;
-		while (av[i][j])
+		j = -1;
+		new_nb = 1;
+		while (av[i][++j])
 		{
-			if (av[i][j] == '-' && (!ft_isdigit(av[i][j + 1]) || new_nb == 0))
-			{
-				ft_putstr_fd("Error\n", 2);
-				return (0);
-			}
-			if (!ft_isdigit(av[i][j]) && av[i][j] != ' ' && av[i][j] != '-')
+			if ((av[i][j] == '-' && (!ft_isdigit(av[i][j + 1]) || new_nb == 0))
+			|| (!ft_isdigit(av[i][j]) && av[i][j] != ' ' && av[i][j] != '-'))
 			{
 				ft_putstr_fd("Error\n", 2);
 				return (0);
 			}
 			if (av[i][j] == ' ')
 				new_nb = 1;
-			else if (av[i][j] == '-')
+			else
 				new_nb = 0;
-			j++;
 		}
-		i++;
 	}
 	return (1);
 }

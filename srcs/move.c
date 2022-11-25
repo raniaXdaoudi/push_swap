@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 21:04:28 by rania             #+#    #+#             */
-/*   Updated: 2022/10/20 17:24:00 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/25 19:20:31 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ void	ft_swap(t_stack *stack, char const *move)
 		tmp = stack->next->val;
 		stack->next->val = stack->val;
 		stack->val = tmp;
-		tmp = stack->next->pos;
-		stack->next->pos = stack->pos;
-		stack->pos = tmp;
 		ft_printf("%s\n", move);
 	}
 }
@@ -45,7 +42,7 @@ void	ft_push(t_stack **stack_src, t_stack **stack_dest, char *move)
 void	ft_rotate(t_stack **stack, char *move)
 {
 	t_stack	*tmp;
-	t_stack    *tail;
+	t_stack	*tail;
 
 	tmp = NULL;
 	if (stack && *stack)

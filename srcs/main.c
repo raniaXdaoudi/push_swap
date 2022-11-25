@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:17:24 by rania             #+#    #+#             */
-/*   Updated: 2022/11/24 13:57:15 by rania            ###   ########.fr       */
+/*   Updated: 2022/11/25 20:01:42 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	check_is_sorted(t_stack **stack_a)
 {
-	int	prev_val;
+	int		prev_val;
 	t_stack	*tmp;
 
 	tmp = *stack_a;
@@ -29,6 +29,18 @@ static int	check_is_sorted(t_stack **stack_a)
 	return (1);
 }
 
+static int	ft_checker(t_stack *stack_a)
+{
+	if (check_is_sorted(&stack_a))
+	{
+		free_stack(&stack_a);
+		return (0);
+	}
+	if (!ft_check_double(&stack_a))
+		return (0);
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -36,15 +48,11 @@ int	main(int ac, char **av)
 
 	if (!ft_check_arg(av) || ac <= 1)
 		return (0);
-	if (!(stack_a = ft_create_stack(ac, av)))
+	stack_a = ft_create_stack(ac, av);
+	if (!stack_a)
 		return (0);
-	if (check_is_sorted(&stack_a))
-	{
-		free_stack(&stack_a);
-		return (0);
-	}
 	stack_b = NULL;
-	if (!ft_check_double(&stack_a))
+	if (!ft_checker(stack_a))
 		return (0);
 	if (ft_stack_size(stack_a) == 2)
 		ft_sort_two(&stack_a, "ra");
